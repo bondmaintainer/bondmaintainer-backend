@@ -1,4 +1,88 @@
 <%- include('../partials/header'); -%>
-<h1>Register page</h1>
+<style>
+    .container-fluid {
+        width: 90%;
+    }
+    .navbar{
+			background-color: #fff !important;
+		}
+    body{
+			background-color:#f4f3ef;
+			overflow-x: hidden;
+		}
+    .card {
+        border: none;
+        background-color:#f4f3ef;
+    }
+    .form-control {
+        border-radius: 25px;
+    }
+    .btn {
+        border-radius: 25px;
+        width: 25%;
+        background-color: #ef8157;
+		border: none;
+    }
+</style>
 
+<body>
+    <nav class="navbar navbar-light bg-light vertical-center">
+        <div class="container-fluid">
+            <a class="navbar-brand vertical-center" href="#">
+                <img src="https://image.shutterstock.com/image-vector/bm-logo-monogram-circle-piece-600w-1726954789.jpg" height="50" width="50" alt="" loading="lazy" />
+            </a>
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 mr-5">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-sm-6">
+                <img src="https://i.imgur.com/zfnrUcY.png" width="100%" height="100%" />
+            </div>
+            <div class="col-md-6" style="margin: auto auto">
+                <!-- <div class="row mt-5"> -->
+                <!-- <div class="col-md-6 m-auto"> -->
+                <div class="card card-body">
+                    <h1 class="text-center mb-3">
+                        <i class="fas fa-user-plus"></i> Register
+                    </h1>
+                    <% ('include ../partials/messages') %>
+                        <form action="/users/register" method="POST">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="name" id="name" name="name" class="form-control" placeholder="Enter Name"
+                                    value="<%= typeof name != 'undefined' ? name : '' %>" />
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" class="form-control"
+                                    placeholder="Enter Email" value="<%= typeof email != 'undefined' ? email : '' %>" />
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" id="password" name="password" class="form-control"
+                                    placeholder="Create Password"
+                                    value="<%= typeof password != 'undefined' ? password : '' %>" />
+                            </div>
+                            <div class="form-group">
+                                <label for="password2">Confirm Password</label>
+                                <input type="password" id="password2" name="password2" class="form-control"
+                                    placeholder="Confirm Password"
+                                    value="<%= typeof password2 != 'undefined' ? password2 : '' %>" />
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block" style="border-radius: 25px;">
+                                Register
+                            </button>
+                        </form>
+                        <p class="lead mt-4">Have An Account? <a href="/users/login" style="color: #ef8157;">Login</a></p>
+                </div>
+                <!-- </div> -->
+                <!-- </div> -->
+            </div>
+        </div>
+    </div>
 <%- include('../partials/footer'); -%>
