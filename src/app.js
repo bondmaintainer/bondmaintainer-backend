@@ -8,6 +8,7 @@ app.engine("ejs", require("ejs").__express);
 const dashboardRoutes = require("./dashboard/dashboardControler");
 const userRouters = require("./user/userControler");
 //Use imported routes
+app.use(express.static(__dirname + '/public'));
 app.use("/dashboard", dashboardRoutes);
 app.use("/user", userRouters);
 app.get("/", function(req, res) {
